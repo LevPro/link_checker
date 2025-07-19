@@ -19,10 +19,10 @@
 - Собрать и запустить LinkChecker.UI
 
 ## Структура кэша  
-- `%APPDATA%\WpfLinkChecker\<site>\*.json` — каждая ссылка хранится в отдельном файле.
+- `%APPDATA%\fLinkChecker\<site>\*.json` — каждая ссылка хранится в отдельном файле.
 
 ## Настройка  
-- success.wav/error.wav можно заменить своими.
+- success.wav/error.wav/icon.ico можно заменить своими.
 
 ## Обновления  
 - Проверка обновлений через GitHub Releases
