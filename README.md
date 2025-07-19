@@ -15,7 +15,7 @@
 
 ## Сборка  
 - .NET 8.0 (или выше)
-- Открыть WpfLinkChecker.sln в Visual Studio или Rider
+- Открыть LinkChecker.sln в Visual Studio или Rider
 - Собрать и запустить LinkChecker.UI
 
 ## Структура кэша  
