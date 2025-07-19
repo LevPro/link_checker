@@ -18,7 +18,7 @@ namespace LinkChecker.UI.Views
 
         private void GithubBtn_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/LevPro/WpfLinkChecker") { UseShellExecute = true });
+            Process.Start(new ProcessStartInfo("https://github.com/LevPro/link_checker") { UseShellExecute = true });
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using LinkChecker.Core.Models;
 using LinkChecker.Core.Services;
 using LinkChecker.UI.Helpers;
@@ -22,12 +23,12 @@ namespace LinkChecker.UI.Views
         private readonly SoundService soundService = new();
 
         private int timeoutSeconds = 10;
-        private string userAgent = "WpfLinkChecker";
+        private string userAgent = "LevPRO/LinkChecker";
         private string proxy = "";
 
         private const string CurrentVersion = "1.0.0";
         private const string RepoOwner = "LevPro";
-        private const string RepoName = "WpfLinkChecker";
+        private const string RepoName = "link_checker";
 
         public MainWindow()
         {
@@ -74,7 +75,7 @@ namespace LinkChecker.UI.Views
             try
             {
                 using var client = new HttpClient();
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("WpfLinkChecker-Updater");
+                client.DefaultRequestHeaders.UserAgent.ParseAdd("LevPRO/LinkChecker");
                 var url = $"https://api.github.com/repos/{RepoOwner}/{RepoName}/releases/latest";
                 var json = await client.GetStringAsync(url);
                 using var doc = JsonDocument.Parse(json);
@@ -107,17 +108,29 @@ namespace LinkChecker.UI.Views
             }
         }
 
-        private void OpenLoadSitemapWindowBtn_Click(object sender, RoutedEventArgs e)
+        private async void OpenLoadSitemapWindowBtn_Click(object sender, RoutedEventArgs e)
         {
-            var dlg = new LoadSitemapWindow();
-            if (dlg.ShowDialog() == true)
+            try
             {
-                List<string> links = dlg.IsUrl
-                    ? sitemapService.LoadLinksFromRemoteSitemapAsync(dlg.PathOrUrl).Result
-                    : sitemapService.LoadLinksFromLocalSitemap(dlg.PathOrUrl);
+                var dlg = new LoadSitemapWindow();
+                if (dlg.ShowDialog() == true)
+                {
+                    List<string> links = dlg.IsUrl
+                        ? await sitemapService.LoadLinksFromRemoteSitemapAsync(dlg.PathOrUrl)
+                        : sitemapService.LoadLinksFromLocalSitemap(dlg.PathOrUrl);
+                    if (links.Count == 0)
+                    {
+                        MessageBox.Show("Указанный адрес не содержит файл sitemap.xml.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
 
-                Sites = linkService.GroupLinksBySite(links);
-                RefreshLinksList();
+                    Sites = linkService.GroupLinksBySite(links);
+                    RefreshLinksList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);;
             }
         }
 

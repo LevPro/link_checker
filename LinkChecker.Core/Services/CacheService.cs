@@ -11,7 +11,7 @@ namespace LinkChecker.Core.Services
         {
             var dir = Path.Combine(
                 System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData),
-                "WpfLinkChecker",
+                "LinkChecker",
                 siteHost);
             Directory.CreateDirectory(dir);
             return dir;
