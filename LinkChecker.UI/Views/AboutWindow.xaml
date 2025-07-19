@@ -1,0 +1,20 @@
+<Window x:Class="LinkChecker.UI.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="О программе"
+        Icon="/Resources/icon.ico"
+        SizeToContent="Height"
+        Width="400"
+        WindowStartupLocation="CenterOwner"
+        AllowsTransparency="False">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <TextBlock FontSize="18" FontWeight="Bold" Text="Link Checker" Margin="0,0,0,10" TextAlignment="Center"/>
+        <TextBlock FontSize="14" Text="Программа для проверки доступности ссылок" Margin="0,0,0,10" TextAlignment="Center"/>
+        <TextBlock FontSize="12" Text="Автор: LevPRO" Margin="0,0,0,10" TextAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Сайт автора" Padding="10,5,10,5" Margin="5" Width="120" Click="AuthorSiteBtn_Click"/>
+            <Button Content="GitHub проекта" Padding="10,5,10,5" Margin="5" Width="120" Click="GithubBtn_Click"/>
+        </StackPanel>
+        <TextBlock FontSize="11" Text="https://levpro.ru" Margin="0,10,0,0" TextAlignment="Center"/>
+    </StackPanel>
+</Window>

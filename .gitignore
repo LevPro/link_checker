@@ -1,0 +1,30 @@
+# Visual Studio/Rider
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.log
+
+# DotCover
+*.dotCover
+
+# Others
+*.db
+*.sqlite
+
+# Cache
+*.cache/
+*.json

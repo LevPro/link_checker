@@ -1,0 +1,40 @@
+<Window x:Class="LinkChecker.UI.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Link Checker"
+        Icon="/Resources/icon.ico"
+        Width="900"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="False">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Padding="0,5,0,5">
+            <MenuItem Header="Загрузить ссылки">
+                <MenuItem Header="Вручную" Click="OpenLoadLinksWindowBtn_Click"/>
+                <MenuItem Header="Из sitemap.xml" Click="OpenLoadSitemapWindowBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="Помощь">
+                <MenuItem Header="О программа" Click="AboutBtn_Click"/>
+                <MenuItem Header="Проверить обновления" Click="UpdateCheckBtn_Click"/>
+            </MenuItem>
+            <MenuItem Header="Настройки" Click="OpenSettingsWindowBtn_Click"/>
+        </Menu>
+        <StackPanel Margin="5">
+            <Grid Margin="0,5,0,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Поиск ссылки:" VerticalAlignment="Center" Grid.Column="0" />
+                <TextBox Name="SearchBox" Margin="5,0,0,0" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Grid.Column="1"/>
+                <Button Content="Проверить все" Name="CheckAllBtn" Margin="0,0,5,0" Padding="10,0,10,0" Click="CheckAllBtn_Click" Grid.Column="3"/>
+                <Button Content="Удалить все" Name="DeleteAllBtn" Margin="0,0,5,0" Padding="10,0,10,0" Click="DeleteAllBtn_Click" Grid.Column="4"/>
+            </Grid>
+            <ListBox Margin="5,5,5,0" Name="LinksList" Height="300"/>
+            <ProgressBar Name="ProgressBar" Height="20" Visibility="Collapsed"/>
+        </StackPanel>
+    </DockPanel>
+</Window>

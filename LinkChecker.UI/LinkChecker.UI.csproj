@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LinkChecker.Core\LinkChecker.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Icons\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\icon.ico" />
+    <None Remove="Resources\Sounds\error.wav" />
+    <Resource Include="Resources\Sounds\error.wav" />
+    <None Remove="Resources\Sounds\success.wav" />
+    <Resource Include="Resources\Sounds\success.wav" />
+  </ItemGroup>
+</Project>
